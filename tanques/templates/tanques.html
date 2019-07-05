@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block ng_app %} <html class="no-js" lang="es" ng-app="src.tanques"> {% endblock ng_app %}
+{% block head_title %} {{ title }} {% endblock head_title %}
+{% block personal_styles %}
+	.dxGrid{
+		border:1px solid #ccc;
+		margin-top: 10px;
+	}
+	.nav-tabs > li > a{
+		background-color: #ebebe0; <!--Clase para darle estilo con solor gris a las pestaÃ±as-->
+	}
+
+	.right-text input{
+		text-align: right;
+	}
+{% endblock personal_styles %}
+{% block contenido %}
+
+<div ng-controller="Tanques as vm">
+	<div class ="content dx-viewport">
+		<div class="dx-fieldset-header" style="margin-bottom: 5px;">Tanques </div>
+
+		<div class="dx-fieldset-header" style="margin-bottom: 5px;">{[{valor}]}</div>
+		<div class="col-md-3 form-group">
+			<div dx-button="vm.buttons.btnOptions">
+			</div>					
+		</div>
+	</div>
+
+</div>
+{% endblock contenido %}
+{% block scripts_js %}
+	<script type="text/javascript" src="{% static 'javascripts/agricola.config.js' %}"></script>
+	<script type="text/javascript" src="{% static 'tanques/js/tanques.module.js' %}"></script>
+	<script type="text/javascript" src="{% static 'tanques/js/controllers/tanques.controller.js' %}"></script>
+{% endblock scripts_js %}
